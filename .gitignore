@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+build/
+output/
+.venv/
+.env
+.env.*
+.DS_Store

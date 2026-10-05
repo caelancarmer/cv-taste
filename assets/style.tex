@@ -1,0 +1,21 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[left=13.97mm,right=13.97mm,top=9.8mm,bottom=12mm]{geometry}
+\usepackage{enumitem}
+\usepackage[expansion=false,protrusion=false]{microtype}
+\usepackage[hidelinks,unicode]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+% Set document title, author, and subject in the role-specific source.
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.8em}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlist[itemize]{label=\textbullet,leftmargin=24.8pt,labelsep=5.0pt,itemsep=1.4pt,topsep=2.0pt,parsep=0pt,partopsep=0pt}
+\newcommand{\cvsection}[1]{\par\vspace{6.1pt}{\fontsize{12}{14}\selectfont\scshape #1\par}\vspace{1pt}\hrule height .4pt\vspace{4pt}}
+\newenvironment{cvbody}{\begin{list}{}{\setlength{\leftmargin}{10.8pt}\setlength{\rightmargin}{4.7pt}\setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}\setlength{\parsep}{0pt}\setlength{\itemsep}{0pt}}\item\relax}{\end{list}}
+\newcommand{\entry}[3]{\textbf{#1}\hfill #3\par{\itshape #2}\par}

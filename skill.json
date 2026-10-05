@@ -1,0 +1,15 @@
+{
+  "name": "cv-taste",
+  "version": "0.0.0",
+  "license": "LicenseRef-cv-taste-No-Resale-1.0",
+  "language": "en",
+  "entrypoint": "SKILL.md",
+  "reference_source": "assets/reference.tex",
+  "reference_pdf": "assets/reference.pdf",
+  "reference_preview": "assets/reference-preview.png",
+  "style": "assets/style.tex",
+  "renderer": "scripts/render.py",
+  "example_data": "fictional",
+  "default_page_format": "A4",
+  "default_page_count": 1
+}
