@@ -27,3 +27,6 @@ Every field in a generated report must be computed from the artifact.
 Error messages must include the underlying cause.
 State each rule or value once and reference it elsewhere.
 Tests that need an external tool must skip with a clear reason when it is absent.
+
+## ChatGPT Chat short-command agent harness
+For requests to execute next tasks or a five-task full loop, load `.agents/skills/execute-next-batch/SKILL.md`, `docs/agent-harness/README.md`, and canonical current state. Check live branch/PR/CI before editing. Existing domain-specific instructions remain authoritative; this is not an automatic chat trigger.
