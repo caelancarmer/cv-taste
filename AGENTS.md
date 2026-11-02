@@ -27,3 +27,6 @@ Every field in a generated report must be computed from the artifact.
 Error messages must include the underlying cause.
 State each rule or value once and reference it elsewhere.
 Tests that need an external tool must skip with a clear reason when it is absent.
+
+## Project-state v2 preflight (mandatory)
+At every agent session, batch, handoff, or chat-load failure read `project-state/README.md`, `current-state.md`, `decisions.md`, `open-tasks.md`, `handoff.md`, recovery policy + JSON and evidence index; inspect live Git, current PR/CI and source evidence. Node 20+ local checkouts: `node scripts/project-state.mjs verify` then `recover`; `begin` before material execution and `close` after a bounded task. Status `reported-pass` is not independent verification. If active execution or a torn checkpoint is discovered: STOP, reconcile real side effects, never auto-replay. Update all three state markdown files together and push only to review branches; no forced push, auto merge, deploy, cost or secrets. Existing more-specific instructions still apply. Focus: Renderer and PDF layout proof; never substitute fictional candidate data for real applicant facts; protect job-application privacy; inspect SKILL.md. This file alone cannot force external hosts to comply.

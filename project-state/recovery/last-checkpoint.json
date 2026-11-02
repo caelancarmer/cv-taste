@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "repository": "caelancarmer/cv-taste",
+  "sequence": 0,
+  "checkpoint_id": "bootstrap-506e8fe3a2e1",
+  "previous_checkpoint_id": null,
+  "source_sha": "506e8fe3a2e19a101212cdd444053e21a8aaec8e",
+  "observed_at": "2026-11-02",
+  "status": "baseline-only",
+  "result": "unverified",
+  "attempt_id": null,
+  "independent_evidence_verified": false,
+  "external_effects": "none-asserted"
+}
