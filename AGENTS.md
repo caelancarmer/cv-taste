@@ -30,3 +30,6 @@ Tests that need an external tool must skip with a clear reason when it is absent
 
 ## ChatGPT Chat short-command agent harness
 For requests to execute next tasks or a five-task full loop, load `.agents/skills/execute-next-batch/SKILL.md`, `docs/agent-harness/README.md`, and canonical current state. Check live branch/PR/CI before editing. Existing domain-specific instructions remain authoritative; this is not an automatic chat trigger.
+
+## Camel v0.1.5 — founder-command native loop
+Read `docs/agent-harness/camel-v015.md` and `.agents/skills/execute-next-batch/SKILL.md` on a user full-loop command. Reconcile current source, canonical V2 state, permissions and proof, execute bounded genuine work, verify and persist honest handoff. Up to five DISTINCT native deliverables PER named repo; tests and reports do not fill task slots. Respond in Indonesian fenced `text` tree. Preserve privacy/license/security; no cron, automatic host-message hook, unapproved merge/deployment/charges.
