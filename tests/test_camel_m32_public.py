@@ -1,4 +1,4 @@
-"""Public Camel M32 contract: privacy and fail-closed structure (stdlib only)."""
+"""Public Camel M33 guidance contract: privacy and fail-closed structure (stdlib only)."""
 import json
 import re
 import unittest
@@ -11,7 +11,7 @@ REQUIRED = {
     "stop-on-unknown", "save-durable-handoff",
 }
 
-class PublicCamelM32Tests(unittest.TestCase):
+class PublicCamelM33Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.manifest = json.loads((DATA / "manifest.json").read_text(encoding="utf-8"))
@@ -19,7 +19,11 @@ class PublicCamelM32Tests(unittest.TestCase):
         cls.policy = json.loads((DATA / "policy.json").read_text(encoding="utf-8"))
 
     def test_not_private_bundle(self):
-        self.assertEqual(self.manifest["kernel"]["version"], "m32-public-guidance")
+        self.assertEqual(self.manifest["kernel"]["version"], "m33-public-guidance")
+        self.assertIs(self.manifest["review_only"], True)
+        self.assertIs(self.manifest["trajectory"]["host_attestation_verified"], False)
+        self.assertIs(self.manifest["trajectory"]["outcome_auto_certification"], False)
+        self.assertIs(self.manifest["private_camel_source_bundled"], False)
         self.assertIs(self.manifest["kernel"]["private_source_bundled"], False)
         self.assertEqual(self.manifest["distribution"]["source_modules"], 0)
         self.assertEqual(self.manifest["distribution"]["kind"], "guidance-only")
