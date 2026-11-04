@@ -1,0 +1,37 @@
+name: Camel M33 public guidance safety QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.camel/manifest.json'
+      - 'docs/agent-harness/m33-public-guidance.md'
+      - '.github/workflows/camel-m33-public-guidance-qa.yml'
+permissions:
+  contents: read
+jobs:
+  no-private-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Assert guidance-only payload with zero private runtime
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const m=JSON.parse(fs.readFileSync('.camel/manifest.json','utf8'));
+          if(m.resident_id!=='cv-taste'||m.kernel.version!=='m33-public-guidance'||
+             m.kernel.private_source_bundled!==false||m.private_camel_source_bundled!==false||
+             m.distribution.kind!=='guidance-only'||m.distribution.source_modules!==0||
+             m.distribution.private_runtime_exported!==false||m.autonomous_host_installed!==false||
+             m.review_only!==true||m.trajectory.host_attestation_verified!==false)
+            throw Error('PUBLIC_GUIDANCE_BOUNDARY_BROKEN');
+          if(fs.existsSync('.camel/camel-resident.mjs'))throw Error('PRIVATE_SOURCE_IN_PUBLIC_REPO');
+          console.log('M33_PUBLIC_GUIDANCE_SOURCE_BOUNDARY_PASS');
+          NODE
