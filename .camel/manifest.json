@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "resident_id": "cv-taste",
+  "kernel": {
+    "name": "camel-cat",
+    "version": "m32-public-guidance",
+    "private_source_bundled": false
+  },
+  "distribution": {
+    "kind": "guidance-only",
+    "source_modules": 0,
+    "git_blob_sha": null,
+    "private_runtime_exported": false
+  },
+  "trajectory": {
+    "max_outcomes": 5,
+    "max_sub_trajectories_per_outcome": 12,
+    "habits_file": ".camel/habits.json"
+  },
+  "activation": "explicit-owner-turn",
+  "autonomous_host_installed": false,
+  "policy_file": ".camel/policy.json"
+}

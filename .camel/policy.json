@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "max_outcomes_per_cycle": 5,
+  "max_sub_trajectories_per_outcome": 12,
+  "no_new_spend_usd": 0,
+  "automatic_merge": false,
+  "automatic_publication": false,
+  "automatic_job_application": false,
+  "private_candidate_data_in_git": false,
+  "external_effects_require_explicit_owner_grant": true
+}

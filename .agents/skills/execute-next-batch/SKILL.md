@@ -18,3 +18,6 @@ No unapproved merges, releases, deployments, paid resources, account/permission 
 
 ## Camel v0.1.5 — stable execution skill
 Read `docs/agent-harness/camel-v015.md`; per founder command perform one real bounded cycle, up to five material native source tasks PER named repo, verify exact refs and save one canonical V2 handoff with remaining queue. Node 20+ offline validation: `node --test tests/camel-cycle-contract.test.mjs`. Structural claim PASS cannot certify live CI or implicit ChatGPT invocation.
+
+## M32 outcome-first refinement
+On one direct owner cycle, interpret `up to five tasks` as **up to five material outcomes**, each with bounded sub-trajectories. Read `.agents/skills/trajectory-orchestrator/SKILL.md` and `.camel/habits.json`. Require independently observed exact-head acceptance; tests and checkpoints are attached to outcomes, never quota fillers. The runtime code is intentionally not vendored into this public repository. Preserve existing candidate-data and publication protections.

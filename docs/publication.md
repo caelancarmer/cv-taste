@@ -24,3 +24,7 @@ For a release, keep `skill.json`, `CHANGELOG.md`, and the Git tag aligned.
 The tag has a `v` prefix, such as `v0.0.0`. The license’s own version number
 is independent of the package version. Changes use normal commits and releases;
 a new repository is not needed for each version.
+
+## Private Camel source boundary
+
+Do not vendor or publish the privately licensed Camel Cat 38-module bundle in this public repository. Public Camel M32 guidance, domain habits, and their test fixture are separate from any private runtime distribution. Verify candidate identity/privacy and file-diff scope before merging or releasing.
