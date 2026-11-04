@@ -42,3 +42,6 @@ This is a **conversational agent instruction**, not a native ChatGPT message hoo
 
 ## Camel M32 ChatGPT-first outcomes (public-safe)
 For direct owner `!+` and explicit engineering sprints, select **up to five material outcome trajectories**, each with bounded evidence-driven sub-trajectories, instead of five arbitrary microtasks. Read `.agents/skills/trajectory-orchestrator/SKILL.md`, `.camel/habits.json`, and `docs/agent-harness/camel-m32-public.md` after current Git state, governing CV skill and publication policy. This public repository contains **guidance only**: no private 38-source Camel runtime, external LLM, ChatGPT automatic hook, auto-merge, or candidate personal-data storage. Existing CV typography, verification and approval policies take precedence.
+
+## M35 public Camel Cat house guidance
+For direct owner `!+` or approved public-source work, read `.camel/cat.md`, `.camel/house-profile.json`, live GitHub source and existing repository policy. ChatGPT is the reasoner/operator; Cat provides **public guidance-only** context and persistent outcome trajectories with adaptive sub-trajectories. Never install or expose private Camel source, personal data, secrets or restricted provider records. No external agent, autonomous hook or paid execution. Protocol: `m35-chat-native-house-v1`.
