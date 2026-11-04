@@ -134,3 +134,7 @@ New designs, clearer guidance, and useful fixes are welcome. See `AGENTS.md` and
 For a new design, include a fictional source, a PDF, and a preview, and explain any renderer changes needed. The bundled renderer currently validates the signature layout; additional designs need appropriate validation rather than a silent replacement of the default.
 
 Read [publication guidance](docs/publication.md) before a release or visibility change.
+
+## Camel M32 public-safe guidance
+
+This public repository supports ChatGPT Chat outcome-first engineering with a reviewed `.camel/habits.json`, `trajectory-orchestrator` skill, and dedicated stdlib contract tests. It does **not** contain the private Camel Cat 38-module runtime. See [Camel M32 public guidance](docs/agent-harness/camel-m32-public.md).
