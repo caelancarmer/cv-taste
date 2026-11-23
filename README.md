@@ -12,8 +12,6 @@ Start with the signature layout, tailor the content to your story, or contribute
 
 The preview uses fictional candidate details. Use it for the design, then bring your own facts.
 
-The repository contains a design and workflow, not a candidate profile. All example names, organizations, dates, and achievements are fictional. Supply current candidate facts separately for each application.
-
 ## Contents
 
 | File | Purpose |
@@ -28,49 +26,32 @@ The repository contains a design and workflow, not a candidate profile. All exam
 | `tests/test_render.py` | Checks for renderer failures and the reference contract |
 | `skill.json` | Portable package metadata without workspace identifiers |
 | `docs/publication.md` | Release and repository privacy guidance |
+| `docs/install.md` | Install the skill: full guidance, explicit-instructions snippet, example request |
+| `docs/dependencies.md` | Python and pdfLaTeX dependencies and install commands |
+| `docs/rendering.md` | Render the reference and run the renderer tests |
+| `docs/creating-a-candidate-cv.md` | Create a candidate CV: starting template and delivery notes |
 | `CHANGELOG.md` | Package changes |
 | `LICENSE` | Free use and sharing; no resale of the package or templates |
 
 ## Install the skill
 
-Clone the repository into the skill directory used by your agent or workspace:
+Clone the repository into the skill directory used by your agent or workspace (full guidance, including the explicit-instructions snippet and the example request, lives in [docs/install.md](docs/install.md)):
 
 ```bash
 git clone https://github.com/caelancarmer/cv-taste.git .agents/skills/cv-taste
 ```
 
-Use your fork’s URL if you maintain a separate copy. Skill discovery varies by agent; installing a directory does not automatically enable it in every session. When using this repository directly as a workspace, `AGENTS.md` points to `SKILL.md`.
-
-If your workspace needs explicit instructions, add:
-
-```text
-For CV or resume creation and tailoring, use .agents/skills/cv-taste/SKILL.md
-unless the current request selects another style.
-```
-
-If the destination already exists, inspect its contents and local changes before updating it. Do not replace unrelated files.
-
-Example request:
-
-> Tailor a CV for this job description using cv-taste. Use the candidate facts I provide and discuss the draft in chat first.
-
 ## Dependencies
 
-Use Python 3.10 or later and pdfLaTeX. The layout requires `lmodern`, `fontenc`, `inputenc`, `geometry`, `enumitem`, `microtype`, and `hyperref`. PyMuPDF provides PDF inspection and preview generation.
-
-This release was validated on Linux. The following installation commands target Debian or Ubuntu:
+Use Python 3.10 or later and pdfLaTeX. The commands below target Debian or Ubuntu; the full list of required LaTeX packages lives in [docs/dependencies.md](docs/dependencies.md).
 
 ```bash
 sudo apt-get install texlive-latex-base texlive-latex-recommended lmodern
 ```
 
-Install the Python dependency in your chosen environment:
-
 ```bash
 python -m pip install -r requirements.txt
 ```
-
-No web framework, database, JavaScript runtime, or Python HTTP package is required.
 
 ## Render the reference
 
@@ -80,44 +61,27 @@ Run from the repository root:
 python scripts/render.py assets/reference.tex --output-dir /tmp/cv-taste-preview
 ```
 
-The current renderer enforces the bundled one-page A4 Latin Modern design. Additional pages or different designs require corresponding renderer changes. Use trusted TeX sources; see the security note in `SKILL.md`.
-
-The output directory receives the PDF, extracted text, preview PNG, validation JSON, and compiler files. Validation checks A4 page size, one page, allowed fonts, reference body font size, and text bounds. The report contains measured page count, text character count, fonts, minimum margins in points, and PDF byte size. Margins use font-height-normalized span boxes for consistent measurement across supported PyMuPDF versions; the top edge has the documented tolerance in `scripts/render.py`. See `SKILL.md` for review steps.
-
 Run the renderer tests with:
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
+The renderer enforces the bundled one-page A4 Latin Modern design; full validation detail lives in [docs/rendering.md](docs/rendering.md).
+
 ## Create a candidate CV
 
 The source filename should use lowercase kebab-case, for example `candidate-cv-type-1.tex`.
 
-Use `assets/style.tex` as the first input. It contains the document class and full preamble; do not add another `\documentclass`. Resolve its path relative to the candidate source directory, or use an absolute path in that local file.
-
-```tex
-\input{/path/to/cv-taste/assets/style.tex}
-\hypersetup{pdftitle={Candidate CV},pdfauthor={Candidate Name}}
-\begin{document}
-\begin{center}
-{\Huge\bfseries Candidate Name}\par
-City, Region\enspace$|$\enspace candidate@example.com
-\end{center}
-\cvsection{Profile}
-\begin{cvbody}
-Write a concise, factual profile tailored to the target role.
-\end{cvbody}
-\end{document}
-```
-
-Replace the placeholder facts and metadata before delivery. Use the fictional reference for layout and section structure. Use the render command above with the absolute candidate source path and an output directory outside this repository.
+Use `assets/style.tex` as the first input. It contains the document class and full preamble; do not add another `\documentclass`. The full starting template, including the render command for a candidate source, lives in [docs/creating-a-candidate-cv.md](docs/creating-a-candidate-cv.md).
 
 ## Delivery and maintenance
 
-Follow the candidate-data rule and delivery workflow in `SKILL.md`.
+Follow the candidate-data rule and delivery workflow in `SKILL.md`: all example names, organizations, dates, and achievements are fictional, so supply current candidate facts separately for each application. See `AGENTS.md` for maintenance instructions.
 
-See `AGENTS.md` for maintenance instructions.
+## Status and limits
+
+Validated on Linux. The bundled renderer enforces a one-page A4 Latin Modern design; additional designs need corresponding renderer changes. No web framework, database, JavaScript runtime, or Python HTTP package is required.
 
 ## License
 
@@ -129,8 +93,4 @@ Third-party dependencies and fonts retain their own terms. PyMuPDF is separately
 
 ## Contribute
 
-New designs, clearer guidance, and useful fixes are welcome. See `AGENTS.md` and the contribution terms in `LICENSE`. Supply only examples you have the right to share, and keep real candidate data outside the repository.
-
-For a new design, include a fictional source, a PDF, and a preview, and explain any renderer changes needed. The bundled renderer currently validates the signature layout; additional designs need appropriate validation rather than a silent replacement of the default.
-
-Read [publication guidance](docs/publication.md) before a release or visibility change.
+New designs, clearer guidance, and useful fixes are welcome. See `AGENTS.md` and the contribution terms in `LICENSE`. Supply only examples you have the right to share, and keep real candidate data outside the repository. For a new design, include a fictional source, a PDF, and a preview, and explain any renderer changes needed (the bundled renderer validates the signature layout, so additional designs need appropriate validation). Read [publication guidance](docs/publication.md) before a release or visibility change.
